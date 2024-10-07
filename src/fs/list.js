@@ -1,5 +1,11 @@
+import { checkIfPathExists, errorText, getFilesList, getFilesFolderPath } from "../utils.js";
+
 const list = async () => {
-    // Write your code here 
+  if (!checkIfPathExists(getFilesFolderPath('fs'))) {
+    throw new Error(errorText);
+  }
+
+  console.log(await getFilesList('fs'));
 };
 
 await list();
